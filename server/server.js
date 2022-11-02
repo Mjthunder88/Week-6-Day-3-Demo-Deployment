@@ -1,18 +1,15 @@
 const express = require('express')
 const cors = require('cors')
-require('dotenv')
+require('dotenv').config()
 const app = express()
 
-
-const path = require('path')
-// Helps using local paths eaiser
 
 app.use(express.json())
 app.use(cors())
 
+const {home} = require('./controllers/pageCtrl')
 
-
-
+app.get("/", home)
 
 
 const { PORT } = process.env
